@@ -1,0 +1,11 @@
+.husky
+.idea
+.netlify
+.next
+node_modules
+
+*.css
+*.html
+*.json
+*.md
+*.lock
