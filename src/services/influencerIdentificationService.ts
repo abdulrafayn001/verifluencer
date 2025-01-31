@@ -1,4 +1,5 @@
-import { fetchTwitterUser, getFollowerCount } from "@/src/actions/twitter";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { fetchTwitterUser } from "@/src/actions/twitter";
 
 import { initializePerplexityAPI } from "./perplexityService";
 

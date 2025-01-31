@@ -5,7 +5,7 @@ import { TweetV2 } from "twitter-api-v2";
 import { TwitterProfile } from "../types";
 
 export type TimeRange = "week" | "month" | "year" | "all";
-type HealthCategory = "Medicine" | "Nutrition" | "Mental_Health" | "Fitness";
+export type HealthCategory = "Medicine" | "Nutrition" | "Mental_Health" | "Fitness";
 
 export interface Tweet
   extends Required<Pick<TweetV2, "id" | "text" | "created_at">> {
@@ -17,7 +17,7 @@ export interface Tweet
   };
 }
 
-interface Influencer {
+export interface Influencer {
   username: string;
   followerCount: number;
   tweets: Tweet[];

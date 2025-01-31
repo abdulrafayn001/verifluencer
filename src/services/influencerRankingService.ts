@@ -13,6 +13,7 @@ export async function insertInfluencerRecord(
   data: InfluencerData,
 ): Promise<void> {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { data: D, error } = await supabase
       .from("final_result")
       .insert({
@@ -31,6 +32,7 @@ export async function insertInfluencerRecord(
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function getAllInfluencerRecords(): Promise<any[]> {
   try {
     const { data, error } = await supabase

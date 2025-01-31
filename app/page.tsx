@@ -42,7 +42,7 @@ export default function Home() {
       setLoading(true);
       setError(null);
       const analysisResults = await analyzeInfluencer(config);
-      setResults(analysisResults);
+      setResults(analysisResults as AnalysisResults);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Analysis failed");
     } finally {

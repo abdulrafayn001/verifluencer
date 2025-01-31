@@ -2,6 +2,7 @@
 
 import { ClaimProcessor } from "@/src/services/claimProcessingService";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function processHealthClaim(claimData: any) {
   try {
     const processor = new ClaimProcessor();

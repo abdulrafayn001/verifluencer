@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { processClaims } from "../actions/transfarmer";
 import { Tweet, fetchUserTweets } from "../actions/twitter";
 import { HealthClaim, ResearchConfig } from "../types";
@@ -5,26 +6,6 @@ import { identifyHealthInfluencer } from "./influencerIdentificationService";
 import { insertInfluencerRecord } from "./influencerRankingService";
 import { initializePerplexityAPI } from "./perplexityService";
 
-async function fetchInfluencerContent(
-  influencerName: string | undefined,
-  timeRange: string,
-): Promise<string> {
-  const perplexity = initializePerplexityAPI();
-
-  const searchPrompt = `
-    Find the most significant health-related claim from ${influencerName} within the ${timeRange} timeframe.
-    Focus on claims about:
-    - Nutrition
-    - Medicine
-    - Mental Health
-    - Fitness
-    
-    Return the claim in JSON format with no additional text.
-  `;
-
-  const response = await perplexity.analyze(searchPrompt);
-  return response.claims.map(c => c.statement).join("\n\n");
-}
 
 async function verifyClaims(
   claims: HealthClaim[],
@@ -258,8 +239,8 @@ export async function analyzeInfluencer(config: ResearchConfig) {
     // Process and filter health-related tweets
     const processedTweets = await processHealthTweets(tweets);
 
-    let data = await processClaims(processedTweets);
-    let uniqueEmbeddingClaims = await data.data;
+    const data = await processClaims(processedTweets);
+    const uniqueEmbeddingClaims = await data.data;
 
     // Extract specific health claims
     const claims = await extractHealthClaims(uniqueEmbeddingClaims);

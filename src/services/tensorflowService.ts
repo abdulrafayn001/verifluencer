@@ -2,6 +2,7 @@ import { load } from "@tensorflow-models/universal-sentence-encoder";
 import * as tf from "@tensorflow/tfjs";
 
 class TensorflowService {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private model: any = null;
 
   async initialize() {

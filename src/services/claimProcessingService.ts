@@ -5,6 +5,7 @@ export class ClaimProcessor {
   private processedClaims: EnrichedHealthClaim[] = [];
   private readonly SIMILARITY_THRESHOLD = 0.85;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async processClaim(claim: EnrichedHealthClaim | any): Promise<{
     isUnique: boolean;
     similarity?: ClaimSimilarity;

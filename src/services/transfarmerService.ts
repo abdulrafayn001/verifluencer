@@ -18,9 +18,9 @@ interface ClaimGroup {
   similar: TweetClaim[];
 }
 
-interface uniqueClaimsProps {
-  representative: TweetClaim;
-}
+// interface uniqueClaimsProps {
+//   representative: TweetClaim;
+// }
 
 export class ClaimsSimilarityChecker {
   private model: use.UniversalSentenceEncoder | null = null;
@@ -36,6 +36,7 @@ export class ClaimsSimilarityChecker {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private async getEmbeddings(claims: TweetClaim[]): Promise<any> {
     if (!this.model) {
       throw new Error("Model not initialized");
@@ -81,6 +82,7 @@ export class ClaimsSimilarityChecker {
     return matrix;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async findUniqueClaims(claims: TweetClaim[]): Promise<any> {
     try {
       await this.initialize();

@@ -52,7 +52,8 @@ export async function analyzeContent(request: AnalyzeRequest) {
 
       const parsedContent = JSON.parse(jsonContent);
       return parsedContent;
-    } catch (parseError) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (e) {
       console.error("Failed to parse content:", content);
       throw new Error("Invalid response format from AI");
     }
